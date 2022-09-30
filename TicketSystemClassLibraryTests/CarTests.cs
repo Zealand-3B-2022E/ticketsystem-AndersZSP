@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace TicketSystemClassLibrary.Tests
 {
@@ -17,6 +18,59 @@ namespace TicketSystemClassLibrary.Tests
         public void BeforeEachTest()
         {
             car = new Car();
+        }
+
+        [TestMethod()]
+        [DataRow("12345678")]
+        [DataRow("99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999")]
+        [DataRow("        ")]//8 spaces
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void CarWithLongLicensePlateFailTest(string licensePlate)
+        {
+            //Arrange
+            DateTime date = new DateTime(2022, 12, 25);
+            Car longLicensePlate = new Car(licensePlate, date);
+            //Act
+
+            //Assert
+            Assert.Fail();
+        }
+
+
+        [TestMethod()]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void CarWithNullLicensePlateFailTest()
+        {
+            //Arrange
+            DateTime date = new DateTime(2022, 12, 25);
+            Car nullLicensePlate = new Car(null, date);
+            //Act
+
+            //Assert
+            Assert.IsNull(nullLicensePlate);
+        }
+
+
+        [TestMethod()]
+        [DataRow("1234567")]
+        [DataRow("123456")]
+        [DataRow("abcdefg")]
+        [DataRow("abcdef")]
+        [DataRow("A")]
+        [DataRow("       ")]//7 spaces
+        [DataRow("")]
+       // [DataRow("12345678")] //This one was just to test that a car wouldn't be created if it had a long license plate
+        public void CarWith7OrFewerCharLicensePlateTest(string licensePlate) //Testing that a car is created and can be added to the list
+        {
+            //Arrange
+            DateTime date = new DateTime(2022, 12, 25);
+            Car correctLicensePlate = new Car(licensePlate, date);
+            List<Car> cars = new List<Car>();
+            cars.Add(correctLicensePlate);
+            //Act
+
+            //Assert
+            Assert.AreEqual(cars.Count, 1);
         }
 
         [TestMethod()]

@@ -26,6 +26,11 @@ namespace TicketSystemClassLibrary
         }
         public MC(string licensePlate, DateTime date)
         {
+            
+            if(licensePlate.Length > 7)
+            {
+                throw new ArgumentOutOfRangeException("License plate must be 7 or fewer characters");
+            }
             LicensePlate = licensePlate;
             Date = date;
         }

@@ -19,6 +19,9 @@ namespace TicketSystemClassLibrary
     /// </summary>
     public abstract class Vehicle
     {
+        /*I went with having the properties be abstract, so every vehicle that inherits from the vehicle class is forced to have these properties
+        * As they are relevant for ticket sales
+        */
         public abstract string LicensePlate { get; }
         public abstract DateTime Date { get; }
 
