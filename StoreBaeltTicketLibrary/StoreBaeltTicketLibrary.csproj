@@ -4,12 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="TicketSystemClassLibrary">
-      <HintPath>bin\Debug\net6.0\TicketSystemClassLibrary.dll</HintPath>
+      <HintPath>extern dll\TicketSystemClassLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 

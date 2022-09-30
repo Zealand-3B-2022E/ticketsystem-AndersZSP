@@ -21,11 +21,26 @@
         {
 
         }
+        /// <summary>
+        /// Creates an object of the CarClass, that can use the methods Price() and VehicleType()
+        /// </summary>
+        /// <param name="licensePlate">string parameter that can't be above 7 characters</param>
+        /// <param name="date">DateTime parameter that can't be min, max or empty</param>
+        /// <param name="broBizz">Bool parameter</param>
+        /// <exception cref="ArgumentOutOfRangeException">Exception is thrown if the licenseplate is 8 characters or more. 
+        /// Or if the date is empty, min-value or max-value</exception>
         public Car(string licensePlate, DateTime date, bool broBizz)
         {
             if (licensePlate.Length > 7)
             {
                 throw new ArgumentOutOfRangeException("License plate must be 7 or fewer characters");
+            }
+            if (date == DateTime.MinValue || date == DateTime.MaxValue)
+            /*To prevent someone from leaving an empty string.
+            Would like to add feature not to add a date that has passed, but is not a requirement
+            */
+            {
+                throw new ArgumentOutOfRangeException("Please fill in a date");
             }
             LicensePlate = licensePlate;
             Date = date;

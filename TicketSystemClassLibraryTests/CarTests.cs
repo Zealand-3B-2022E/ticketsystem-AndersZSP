@@ -23,6 +23,7 @@ namespace TicketSystemClassLibrary.Tests
             broBizzCar = new Car("1234567", date, true);
         }
 
+        
         [TestMethod()]
         [DataRow("12345678")]
         [DataRow("99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999")]
@@ -67,8 +68,8 @@ namespace TicketSystemClassLibrary.Tests
             DateTime date = new DateTime(2022, 12, 25);
             Car correctLicensePlate = new Car(licensePlate, date, false);
             List<Car> cars = new List<Car>();
-            cars.Add(correctLicensePlate);
             //Act
+            cars.Add(correctLicensePlate);
 
             //Assert
             Assert.AreEqual(cars.Count, 1);
@@ -174,6 +175,59 @@ namespace TicketSystemClassLibrary.Tests
             string expectedVehicleType = car.VehicleType();
             //Assert
             Assert.AreNotEqual(expectedVehicleType, "MC");
+        }
+
+
+
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void CarDateIsinvalidTest()
+        {
+            //Arrange
+            DateTime date = new DateTime(0, 0, 0);
+            Car car = new Car("1234567", date, false);
+            //Act
+
+            //Assert
+            Assert.Fail();
+        }
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void CarDateIsEmptyTest()
+        {
+            //Arrange
+            DateTime date = new DateTime();
+            Car car = new Car("1234567", date, false);
+            //Act
+
+            //Assert
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void CarDateIsMinimunTest()
+        {
+            //Arrange
+
+            Car car = new Car("1234567", DateTime.MinValue, false);
+            //Act
+
+            //Assert
+            Assert.Fail();
+        }
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void CarDateIsMaxTest()
+        {
+            //Arrange
+
+            Car car = new Car("1234567", DateTime.MaxValue, false);
+            //Act
+
+            //Assert
+            Assert.Fail();
         }
     }
 }

@@ -169,5 +169,61 @@ namespace TicketSystemClassLibrary.Tests
             //Assert
             Assert.AreNotEqual(expectedVehicleType, "Car");
         }
+
+
+
+
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void MCDateIsinvalidTest()
+        {
+            //Arrange
+            DateTime date = new DateTime(0, 0, 0);
+            MC mc = new MC("1234567", date, false);
+            //Act
+
+            //Assert
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void MCDateIsEmptyTest()
+        {
+            //Arrange
+            DateTime date = new DateTime();
+            MC mc = new MC("1234567", date, false);
+            //Act
+
+            //Assert
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void MCDateIsMinimunTest()
+        {
+            //Arrange
+
+            MC MC = new MC("1234567", DateTime.MinValue, false);
+            //Act
+
+            //Assert
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void MCDateIsMaxTest()
+        {
+            //Arrange
+
+            MC MC = new MC("1234567", DateTime.MaxValue, false);
+            //Act
+
+            //Assert
+            Assert.Fail();
+        }
     }
 }
