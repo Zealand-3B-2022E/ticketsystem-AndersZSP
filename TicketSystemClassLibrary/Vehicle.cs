@@ -7,45 +7,32 @@ using System.Threading.Tasks;
 namespace TicketSystemClassLibrary
 {
     /// <summary>
-    /// Objects of the MC class has the following properties:
+    /// Vehicle is an abstract class so we can use it in the future for different types of vehicles, but we can't make objects out of it
+    /// 
+    /// Objects that inherit from the Vehicle class have the following properties:
     /// string LicensePlace
     /// DateTime Date
     /// 
-    /// MC objects have two methods: 
+    /// Vehicle objects have two methods: 
     /// Price() which returns a double of the price of a ticket for that vehicletype.
     /// VehicleType() which returns a string of the type of vehicle the ticket is for.
     /// </summary>
-    public class MC:Vehicle
+    public abstract class Vehicle
     {
-        public override string LicensePlate { get; }
-        public override DateTime Date { get; }
-
-        public MC()
-        {
-
-        }
-        public MC(string licensePlate, DateTime date)
-        {
-            LicensePlate = licensePlate;
-            Date = date;
-        }
+        public abstract string LicensePlate { get; }
+        public abstract DateTime Date { get; }
 
         /// <summary>
         /// The Price method returns a double of the price of a ticket for that vehicletype.
+        /// The method is meant to be overwritten by its subclasses
         /// </summary>
-        /// <returns>double 125</returns>
-        public override double Price()
-        {
-            return 125;
-        }
+        public abstract double Price();
 
         /// <summary>
         /// The VehicleType method returns a string of the type of vehicle the ticket is for.
+        /// The method is meant to be overwritten by its subclasses
         /// </summary>
-        /// <returns>string "MC"</returns>
-        public override string VehicleType()
-        {
-            return "MC";
-        }
+        /// <returns>string "Vehicle"</returns>
+        public abstract string VehicleType();
     }
 }

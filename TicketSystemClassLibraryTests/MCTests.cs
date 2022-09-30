@@ -40,7 +40,7 @@ namespace TicketSystemClassLibrary.Tests
             //Assert
             Assert.IsFalse(expectedPrice < 125);
         }
-
+        //reason we have 2 different Fail Price tests is to easier identify if the price is incorrect above or below the asking price
         [TestMethod()]
         public void FailPriceIsabove125Test()
         {
