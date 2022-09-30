@@ -12,9 +12,10 @@ namespace TicketSystemClassLibrary
     /// Objects that inherit from the Vehicle class have the following properties:
     /// string LicensePlace
     /// DateTime Date
+    /// bool BroBizz
     /// 
     /// Vehicle objects have two methods: 
-    /// Price() which returns a double of the price of a ticket for that vehicletype.
+    /// Price() which returns a double of the price of a ticket for that vehicletype. Remember to include brobizz discount if relevant
     /// VehicleType() which returns a string of the type of vehicle the ticket is for.
     /// </summary>
     public abstract class Vehicle

@@ -7,7 +7,7 @@
     /// bool BroBizz
     /// 
     /// Car objects have two methods: 
-    /// Price() which returns a double of the price of a ticket for that vehicletype, with discount if you have BroBizz.
+    /// Price() which returns a double of the price of a ticket for that vehicletype, with 5% discount if you have BroBizz.
     /// VehicleType() which returns a string of the type of vehicle the ticket is for.
     /// </summary>
     public class Car:Vehicle

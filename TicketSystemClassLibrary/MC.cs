@@ -10,9 +10,10 @@ namespace TicketSystemClassLibrary
     /// Objects of the MC class has the following properties:
     /// string LicensePlace
     /// DateTime Date
+    /// Bool BroBizz
     /// 
     /// MC objects have two methods: 
-    /// Price() which returns a double of the price of a ticket for that vehicletype.
+    /// Price() which returns a double of the price of a ticket for that vehicletype and gives 5% discount if you have BroBizz.
     /// VehicleType() which returns a string of the type of vehicle the ticket is for.
     /// </summary>
     public class MC:Vehicle
