@@ -11,7 +11,7 @@ namespace StoreBaeltTicketLibrary
     /// bool BroBizz
     /// 
     /// StoreBaeltCar objects have the following methods:
-    /// double Price() returns a double with the price of the ticket, depending on if it is weekend or not, and if the driver has a BroBizz or not
+    /// double Price() returns a double with the price of the ticket, depending on if it is weekend or not, and if the buyer has a BroBizz or not
     /// string Vehicletype() returns a string containing "Car". Same as the base class Car
     /// </summary>
     public class StoreBaeltCar : Car
