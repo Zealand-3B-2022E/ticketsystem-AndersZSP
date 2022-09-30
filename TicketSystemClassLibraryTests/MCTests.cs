@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace TicketSystemClassLibrary.Tests
 {
-
     [TestClass()]
-    public class CarTests
+    public class MCTests
     {
-        private Car car;
+        private MC mc;
         [TestInitialize]
         public void BeforeEachTest()
         {
-            car = new Car();
+            mc = new MC();
         }
 
         [TestMethod()]
@@ -26,31 +25,31 @@ namespace TicketSystemClassLibrary.Tests
             // Tom grundet TestInitialize
 
             //Act
-            double expectedPrice = car.Price();
+            double expectedPrice = mc.Price();
             //Assert
-            Assert.AreEqual(expectedPrice, 240);
+            Assert.AreEqual(expectedPrice, 125);
         }
 
         [TestMethod()]
-        public void FailPriceIsBelow239Test()
+        public void FailPriceIsBelow125Test()
         {
             //Arrange
 
             //Act
-            double expectedPrice = car.Price();
+            double expectedPrice = mc.Price();
             //Assert
-            Assert.IsFalse(expectedPrice < 239);
+            Assert.IsFalse(expectedPrice < 125);
         }
 
         [TestMethod()]
-        public void FailPriceIsabove241Test()
+        public void FailPriceIsabove125Test()
         {
             //Arrange
 
             //Act
-            double expectedPrice = car.Price();
+            double expectedPrice = mc.Price();
             //Assert
-            Assert.IsFalse(expectedPrice > 241);
+            Assert.IsFalse(expectedPrice > 125);
         }
 
         [TestMethod()]
@@ -59,9 +58,9 @@ namespace TicketSystemClassLibrary.Tests
             //Arrange
 
             //Act
-            string expectedVehicleType = car.VehicleType();
+            string expectedVehicleType = mc.VehicleType();
             //Assert
-            Assert.AreEqual(expectedVehicleType, "Car");
+            Assert.AreEqual(expectedVehicleType, "MC");
         }
         [TestMethod()]
         public void VehicleTypeIncorrectValueTest()
@@ -69,9 +68,9 @@ namespace TicketSystemClassLibrary.Tests
             //Arrange
 
             //Act
-            string expectedVehicleType = car.VehicleType();
+            string expectedVehicleType = mc.VehicleType();
             //Assert
-            Assert.AreNotEqual(expectedVehicleType, "MC");
+            Assert.AreNotEqual(expectedVehicleType, "Car");
         }
     }
 }
