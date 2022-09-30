@@ -4,9 +4,10 @@
     /// Objects of the Car class has the following properties:
     /// string LicensePlace
     /// DateTime Date
+    /// bool BroBizz
     /// 
     /// Car objects have two methods: 
-    /// Price() which returns a double of the price of a ticket for that vehicletype.
+    /// Price() which returns a double of the price of a ticket for that vehicletype, with discount if you have BroBizz.
     /// VehicleType() which returns a string of the type of vehicle the ticket is for.
     /// </summary>
     public class Car:Vehicle
@@ -14,11 +15,13 @@
         public override string LicensePlate { get;}
         public override DateTime Date { get;}
 
+        public override bool BroBizz { get; }
+
         public Car()
         {
 
         }
-        public Car(string licensePlate, DateTime date)
+        public Car(string licensePlate, DateTime date, bool broBizz)
         {
             if (licensePlate.Length > 7)
             {
@@ -26,15 +29,21 @@
             }
             LicensePlate = licensePlate;
             Date = date;
+            BroBizz = broBizz;
         }
 
         /// <summary>
         /// The Price method returns a double of the price of a ticket for that vehicletype.
         /// </summary>
-        /// <returns>double 240</returns>
+        /// <returns>double 240 unless BroBizz is true, where it returns 228</returns>
         public override double Price()
         {
-            return 240;
+            double price = 240;
+            if (BroBizz)
+            {
+                return price * 0.95;
+            }
+            return price;
         }
 
         /// <summary>

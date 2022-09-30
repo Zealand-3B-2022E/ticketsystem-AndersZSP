@@ -24,6 +24,7 @@ namespace TicketSystemClassLibrary
         */
         public abstract string LicensePlate { get; }
         public abstract DateTime Date { get; }
+        public abstract bool BroBizz { get; }
 
         /// <summary>
         /// The Price method returns a double of the price of a ticket for that vehicletype.

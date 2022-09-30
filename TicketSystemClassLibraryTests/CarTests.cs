@@ -14,10 +14,13 @@ namespace TicketSystemClassLibrary.Tests
     public class CarTests
     {
         private Car car;
+        private Car broBizzCar;
         [TestInitialize]
         public void BeforeEachTest()
         {
             car = new Car();
+            DateTime date = new DateTime(2022, 12, 25);
+            broBizzCar = new Car("1234567", date, true);
         }
 
         [TestMethod()]
@@ -29,13 +32,12 @@ namespace TicketSystemClassLibrary.Tests
         {
             //Arrange
             DateTime date = new DateTime(2022, 12, 25);
-            Car longLicensePlate = new Car(licensePlate, date);
+            Car longLicensePlate = new Car(licensePlate, date, false);
             //Act
 
             //Assert
             Assert.Fail();
         }
-
 
         [TestMethod()]
         [ExpectedException(typeof(NullReferenceException))]
@@ -43,13 +45,12 @@ namespace TicketSystemClassLibrary.Tests
         {
             //Arrange
             DateTime date = new DateTime(2022, 12, 25);
-            Car nullLicensePlate = new Car(null, date);
+            Car nullLicensePlate = new Car(null, date, false);
             //Act
 
             //Assert
             Assert.IsNull(nullLicensePlate);
         }
-
 
         [TestMethod()]
         [DataRow("1234567")]
@@ -64,7 +65,7 @@ namespace TicketSystemClassLibrary.Tests
         {
             //Arrange
             DateTime date = new DateTime(2022, 12, 25);
-            Car correctLicensePlate = new Car(licensePlate, date);
+            Car correctLicensePlate = new Car(licensePlate, date, false);
             List<Car> cars = new List<Car>();
             cars.Add(correctLicensePlate);
             //Act
@@ -72,6 +73,10 @@ namespace TicketSystemClassLibrary.Tests
             //Assert
             Assert.AreEqual(cars.Count, 1);
         }
+
+
+
+
 
         [TestMethod()]
         public void PriceTest()
@@ -107,6 +112,48 @@ namespace TicketSystemClassLibrary.Tests
             //Assert
             Assert.IsFalse(expectedPrice > 241);
         }
+
+
+
+
+
+        [TestMethod()]
+        public void BroBizzPriceTest()
+        {
+            //Arrange
+
+            //Act
+            double expectedPrice = broBizzCar.Price();
+            //Assert
+            Assert.AreEqual(expectedPrice, 228);
+        }
+
+        [TestMethod()]
+        public void FailBroBizzPriceIsBelow228Test()
+        {
+            //Arrange
+
+            //Act
+            double expectedPrice = broBizzCar.Price();
+            //Assert
+            Assert.IsFalse(expectedPrice < 228);
+        }
+
+        //reason we have 2 different Fail Price tests is to easier identify if the price is incorrect above or below the asking price
+        [TestMethod()]
+        public void FailBroBizzPriceIsabove228Test()
+        {
+            //Arrange
+
+            //Act
+            double expectedPrice = broBizzCar.Price();
+            //Assert
+            Assert.IsFalse(expectedPrice > 228);
+        }
+
+
+
+
 
         [TestMethod()]
         public void VehicleTypeTest()

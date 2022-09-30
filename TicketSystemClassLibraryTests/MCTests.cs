@@ -12,10 +12,13 @@ namespace TicketSystemClassLibrary.Tests
     public class MCTests
     {
         private MC mc;
+        private MC broBizzMC;
         [TestInitialize]
         public void BeforeEachTest()
         {
             mc = new MC();
+            DateTime date = new DateTime(2022, 12, 25);
+            broBizzMC = new MC("1234567", date, true);
         }
 
         [TestMethod()]
@@ -26,7 +29,7 @@ namespace TicketSystemClassLibrary.Tests
         {
             //Arrange
             DateTime date = new DateTime(2022, 12, 25);
-            MC longLicensePlate = new MC(licensePlate, date);
+            MC longLicensePlate = new MC(licensePlate, date,false);
             //Act
 
             //Assert
@@ -40,7 +43,7 @@ namespace TicketSystemClassLibrary.Tests
         {
             //Arrange
             DateTime date = new DateTime(2022, 12, 25);
-            MC nullLicensePlate = new MC(null, date);
+            MC nullLicensePlate = new MC(null, date,false);
             //Act
 
             //Assert
@@ -59,7 +62,7 @@ namespace TicketSystemClassLibrary.Tests
         {
             //Arrange
             DateTime date = new DateTime(2022, 12, 25);
-            MC correctLicensePlate = new MC(licensePlate, date);
+            MC correctLicensePlate = new MC(licensePlate, date, false);
             List<MC> MCs = new List<MC>();
             MCs.Add(correctLicensePlate);
             //Act
@@ -67,6 +70,9 @@ namespace TicketSystemClassLibrary.Tests
             //Assert
             Assert.AreEqual(MCs.Count, 1);
         }
+
+
+
 
 
         [TestMethod()]
@@ -102,6 +108,46 @@ namespace TicketSystemClassLibrary.Tests
             //Assert
             Assert.IsFalse(expectedPrice > 125);
         }
+
+
+
+
+        [TestMethod()]
+        public void BroBizzPriceTest()
+        {
+            //Arrange
+
+            //Act
+            double expectedPrice = broBizzMC.Price();
+            //Assert
+            Assert.AreEqual(expectedPrice, 118.75,0.001); 
+            //Using a delta value in case the computer calculates it to give 118.75000001, so it rounds it down, giving us 118.75 
+        }
+
+        [TestMethod()]
+        public void FailBroBizzPriceIsBelow118Test()
+        {
+            //Arrange
+
+            //Act
+            double expectedPrice = broBizzMC.Price();
+            //Assert
+            Assert.IsFalse(expectedPrice < 118); //Can only use delta values on assert.AreEqual, so I rounded down the price
+        }
+
+
+        [TestMethod()]
+        public void FailBroBizzPriceIsabove119Test()
+        {
+            //Arrange
+
+            //Act
+            double expectedPrice = broBizzMC.Price();
+            //Assert
+            Assert.IsFalse(expectedPrice > 119);
+        }
+
+
 
         [TestMethod()]
         public void VehicleTypeTest()

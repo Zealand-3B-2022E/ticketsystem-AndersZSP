@@ -20,28 +20,36 @@ namespace TicketSystemClassLibrary
         public override string LicensePlate { get; }
         public override DateTime Date { get; }
 
+        public override bool BroBizz { get; }
+
         public MC()
         {
 
         }
-        public MC(string licensePlate, DateTime date)
+        public MC(string licensePlate, DateTime date, bool broBizz)
         {
-            
-            if(licensePlate.Length > 7)
+
+            if (licensePlate.Length > 7)
             {
                 throw new ArgumentOutOfRangeException("License plate must be 7 or fewer characters");
             }
             LicensePlate = licensePlate;
             Date = date;
+            BroBizz = broBizz;
         }
 
         /// <summary>
         /// The Price method returns a double of the price of a ticket for that vehicletype.
         /// </summary>
-        /// <returns>double 125</returns>
+        /// <returns>double 125 unless BroBizz is true, where it returns 118.75</returns>
         public override double Price()
         {
-            return 125;
+            double price = 125;
+            if(BroBizz)
+            {
+                return price * 0.95;
+            }
+            return price;
         }
 
         /// <summary>
