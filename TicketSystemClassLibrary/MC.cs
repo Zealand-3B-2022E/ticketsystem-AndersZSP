@@ -16,7 +16,7 @@ namespace TicketSystemClassLibrary
     /// Price() which returns a double of the price of a ticket for that vehicletype and gives 5% discount if you have BroBizz.
     /// VehicleType() which returns a string of the type of vehicle the ticket is for.
     /// </summary>
-    public class MC:Vehicle
+    public class MC:Vehicle //What did I do to break the vehicle reference?
     {
         public override string LicensePlate { get; set; }
         public override DateTime Date { get; set; }
