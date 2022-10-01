@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TicketSystemClassLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:TicketSystemClassLibrary.Car">
+            <summary>
+            Objects of the Car class has the following properties:
+            string LicensePlace
+            DateTime Date
+            bool BroBizz
+            
+            Car objects have two methods: 
+            Price() which returns a double of the price of a ticket for that vehicletype, with 5% discount if you have BroBizz.
+            VehicleType() which returns a string of the type of vehicle the ticket is for.
+            </summary>
+        </member>
+        <member name="M:TicketSystemClassLibrary.Car.Price">
+            <summary>
+            The Price method returns a double of the price of a ticket for that vehicletype.
+            </summary>
+            <returns>double 240 unless BroBizz is true, where it returns 228</returns>
+        </member>
+        <member name="M:TicketSystemClassLibrary.Car.VehicleType">
+            <summary>
+            The VehicleType method returns a string of the type of vehicle the ticket is for
+            </summary>
+            <returns>string "Car"</returns>
+        </member>
+        <member name="T:TicketSystemClassLibrary.MC">
+            <summary>
+            Objects of the MC class has the following properties:
+            string LicensePlace
+            DateTime Date
+            Bool BroBizz
+            
+            MC objects have two methods: 
+            Price() which returns a double of the price of a ticket for that vehicletype and gives 5% discount if you have BroBizz.
+            VehicleType() which returns a string of the type of vehicle the ticket is for.
+            </summary>
+        </member>
+        <member name="M:TicketSystemClassLibrary.MC.Price">
+            <summary>
+            The Price method returns a double of the price of a ticket for that vehicletype.
+            </summary>
+            <returns>double 125 unless BroBizz is true, where it returns 118.75</returns>
+        </member>
+        <member name="M:TicketSystemClassLibrary.MC.VehicleType">
+            <summary>
+            The VehicleType method returns a string of the type of vehicle the ticket is for.
+            </summary>
+            <returns>string "MC"</returns>
+        </member>
+        <member name="T:TicketSystemClassLibrary.Vehicle">
+            <summary>
+            Vehicle is an abstract class so we can use it in the future for different types of vehicles, but we can't make objects out of it
+            
+            Objects that inherit from the Vehicle class have the following properties:
+            string LicensePlace
+            DateTime Date
+            bool BroBizz
+            
+            Vehicle objects have two methods: 
+            Price() which returns a double of the price of a ticket for that vehicletype. Remember to include brobizz discount if relevant
+            VehicleType() which returns a string of the type of vehicle the ticket is for.
+            </summary>
+        </member>
+        <member name="M:TicketSystemClassLibrary.Vehicle.Price">
+            <summary>
+            The Price method returns a double of the price of a ticket for that vehicletype.
+            The method is meant to be overwritten by its subclasses
+            </summary>
+        </member>
+        <member name="M:TicketSystemClassLibrary.Vehicle.VehicleType">
+            <summary>
+            The VehicleType method returns a string of the type of vehicle the ticket is for.
+            The method is meant to be overwritten by its subclasses
+            </summary>
+            <returns>string "Vehicle"</returns>
+        </member>
+    </members>
+</doc>
