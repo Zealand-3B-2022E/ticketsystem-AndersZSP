@@ -19,9 +19,9 @@ namespace StoreBaeltTicketLibrary
 
         public override string LicensePlate { get; }
 
-        public override DateTime Date { get; }
+        public override DateTime Date { get;}
 
-        public override bool BroBizz { get; }
+        public override bool BroBizz { get;}
 
         public StoreBaeltCar()
         {

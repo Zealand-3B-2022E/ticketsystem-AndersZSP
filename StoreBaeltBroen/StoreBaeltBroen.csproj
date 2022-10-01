@@ -12,7 +12,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StoreBaeltTicketLibrary\StoreBaeltTicketLibrary.csproj" />
-    <ProjectReference Include="..\TicketSystemClassLibrary\TicketSystemClassLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TicketSystemClassLibrary">
+      <HintPath>..\..\..\..\Desktop\TicketSystemDLL\Newer version\TicketSystemClassLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

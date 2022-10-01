@@ -18,10 +18,10 @@ namespace TicketSystemClassLibrary
     /// </summary>
     public class MC:Vehicle
     {
-        public override string LicensePlate { get; }
-        public override DateTime Date { get; }
+        public override string LicensePlate { get; set; }
+        public override DateTime Date { get; set; }
 
-        public override bool BroBizz { get; }
+        public override bool BroBizz { get; set; }
 
         public MC()
         {

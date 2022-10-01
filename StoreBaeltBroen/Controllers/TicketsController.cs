@@ -48,15 +48,33 @@ namespace StoreBaeltBroen.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public IActionResult Post([FromBody] StoreBaeltCar SBCar)
+        public IActionResult BuyTicketCar([FromBody] StoreBaeltCar SBCar)
         {
             try 
             {
                 StoreBaeltCar newVehicle = mgr.BuyTicketCar(SBCar);
-                string uri = "api/StoreBaeltCar/" + SBCar.LicensePlate;
+                string uri = "api/[controller]/" + SBCar.LicensePlate;
                 return Created(uri, newVehicle);
             }
             catch(ArgumentException ae)
+            {
+                return Conflict(ae.Message);
+            }
+
+        }
+        [HttpPost]
+        [Route("buyticketmc")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        public IActionResult BuyTicketMC([FromBody] MC mc)
+        {
+            try
+            {
+                MC newVehicle = mgr.BuyTicketMC(mc);
+                string uri = "api/[controller]/" + mc.LicensePlate;
+                return Created(uri, newVehicle);
+            }
+            catch (ArgumentException ae)
             {
                 return Conflict(ae.Message);
             }

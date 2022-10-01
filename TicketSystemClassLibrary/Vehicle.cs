@@ -23,9 +23,9 @@ namespace TicketSystemClassLibrary
         /*I went with having the properties be abstract, so every vehicle that inherits from the vehicle class is forced to have these properties
         * As they are relevant for ticket sales
         */
-        public abstract string LicensePlate { get; }
-        public abstract DateTime Date { get; }
-        public abstract bool BroBizz { get; }
+        public abstract string LicensePlate { get; set;  }
+        public abstract DateTime Date { get; set; }
+        public abstract bool BroBizz { get; set; }
 
         /// <summary>
         /// The Price method returns a double of the price of a ticket for that vehicletype.

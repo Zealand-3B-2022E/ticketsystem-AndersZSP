@@ -50,10 +50,10 @@ namespace StoreBaeltBroen.Managers
 
         public StoreBaeltCar BuyTicketCar(StoreBaeltCar SBCar)
         {
-            //if (SBCar == null)
-            //{
-            //    throw new ArgumentNullException();
-            //}
+            if (SBCar == null)
+            {
+                throw new ArgumentNullException();
+            }
             StoreBaeltTicketList.Add(SBCar);
             return SBCar;
         }
