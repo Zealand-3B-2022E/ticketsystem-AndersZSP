@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TicketSystemClassLibrary
+﻿namespace TicketSystemClassLibrary
 {
     /// <summary>
     /// Objects of the MC class has the following properties:
@@ -16,7 +10,7 @@ namespace TicketSystemClassLibrary
     /// Price() which returns a double of the price of a ticket for that vehicletype and gives 5% discount if you have BroBizz.
     /// VehicleType() which returns a string of the type of vehicle the ticket is for.
     /// </summary>
-    public class MC:Vehicle //What did I do to break the vehicle reference?
+    public class MC : Vehicle //What did I do to break the vehicle reference?
     {
         public override string LicensePlate { get; set; }
         public override DateTime Date { get; set; }
@@ -58,7 +52,7 @@ namespace TicketSystemClassLibrary
         public override double Price()
         {
             double price = 125;
-            if(BroBizz)
+            if (BroBizz)
             {
                 return price * 0.95;
             }

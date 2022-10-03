@@ -7,10 +7,5 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="TicketSystemClassLibrary">
-      <HintPath>bin\Debug\net6.0\TicketSystemClassLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 
 </Project>

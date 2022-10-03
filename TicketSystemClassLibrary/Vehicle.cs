@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TicketSystemClassLibrary
+﻿namespace TicketSystemClassLibrary
 {
     /// <summary>
     /// Vehicle is an abstract class so we can use it in the future for different types of vehicles, but we can't make objects out of it
@@ -23,7 +17,7 @@ namespace TicketSystemClassLibrary
         /*I went with having the properties be abstract, so every vehicle that inherits from the vehicle class is forced to have these properties
         * As they are relevant for ticket sales
         */
-        public abstract string LicensePlate { get; set;  }
+        public abstract string LicensePlate { get; set; }
         public abstract DateTime Date { get; set; }
         public abstract bool BroBizz { get; set; }
 

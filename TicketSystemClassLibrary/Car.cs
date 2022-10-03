@@ -10,7 +10,7 @@
     /// Price() which returns a double of the price of a ticket for that vehicletype, with 5% discount if you have BroBizz.
     /// VehicleType() which returns a string of the type of vehicle the ticket is for.
     /// </summary>
-    public class Car:Vehicle
+    public class Car : Vehicle
     {
         public override string LicensePlate { get; set; }
         public override DateTime Date { get; set; }
