@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoreBaeltBroen.Managers;
-using StoreBaeltTicketLibrary;
+using StoreBaeltTicketLib;
 using TicketSystemClassLibrary;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -46,6 +46,7 @@ namespace StoreBaeltBroen.Controllers
 
         // POST api/<TicketsController>
         [HttpPost]
+        [Route("buyticketcar")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public IActionResult BuyTicketCar([FromBody] StoreBaeltCar SBCar)

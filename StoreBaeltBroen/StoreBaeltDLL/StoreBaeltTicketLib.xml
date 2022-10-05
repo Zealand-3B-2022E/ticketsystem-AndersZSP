@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StoreBaeltTicketLib</name>
+    </assembly>
+    <members>
+        <member name="T:StoreBaeltTicketLib.StoreBaeltCar">
+            <summary>
+            The StoreBaeltCar class inherits from the Car class from the TicketSystemClassLibrary.
+            StoreBaeltCar class allows you to construct an object with the following properties:
+            string LicensePlate
+            DateTime Date
+            bool BroBizz
+            
+            StoreBaeltCar objects have the following methods:
+            double Price() returns a double with the price of the ticket, depending on if it is weekend or not, and if the buyer has a BroBizz or not
+            string Vehicletype() returns a string containing "Car". Same as the base class Car
+            </summary>
+        </member>
+        <member name="M:StoreBaeltTicketLib.StoreBaeltCar.#ctor(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Creates an object of the StoreBaeltCarClass, that can use the methods Price() and VehicleType()
+            </summary>
+            <param name="licensePlate">string parameter that can't be above 7 characters</param>
+            <param name="date">DateTime parameter that can't be min, max or empty</param>
+            <param name="broBizz">Bool parameter</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Exception is thrown if the licenseplate is 8 characters or more. 
+            Or if the date is empty, min-value or max-value</exception>
+        </member>
+        <member name="M:StoreBaeltTicketLib.StoreBaeltCar.Price">
+            <summary>
+            The Price() method takes the original price and gives discounts depending on if the ticket is for a weekend
+            and/or if the buyer has BroBizz
+            </summary>
+            <returns>double 240, minus the 20% discount if it's weekend and the 5% discount if the buyer has BroBizz</returns>
+        </member>
+    </members>
+</doc>

@@ -16,12 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StoreBaeltTicketLibrary\StoreBaeltTicketLibrary.csproj" />
+    <ProjectReference Include="..\StoreBaeltTicketLib\StoreBaeltTicketLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="TicketSystemClassLibrary">
-      <HintPath>..\TicketSystemClassLibrary\bin\Debug\net6.0\TicketSystemClassLibrary.dll</HintPath>
+      <HintPath>..\StoreBaeltTicketLib\ExternDLL\TicketSystemClassLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿using StoreBaeltTicketLibrary;
+﻿using StoreBaeltTicketLib;
 using TicketSystemClassLibrary;
 
 namespace StoreBaeltBroen.Managers

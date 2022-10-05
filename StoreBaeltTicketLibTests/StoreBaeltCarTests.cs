@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StoreBaeltTicketLib;
 using StoreBaeltTicketLibrary;
 using System;
 using System.Collections.Generic;
@@ -59,12 +60,12 @@ namespace StoreBaeltTicketLibrary.Tests
         {
             //Arrange
             DateTime date = new DateTime(2022, 10, DayOfWeek);
-            StoreBaeltCar car = new StoreBaeltCar("1234567",date,true);
+            StoreBaeltCar car = new StoreBaeltCar("1234567", date, true);
             //Act
             double expectedPrice = car.Price();
 
             //Assert
-            Assert.AreEqual(expectedPrice,182.4,0.001);
+            Assert.AreEqual(expectedPrice, 182.4, 0.001);
         }
 
         //Test SBCar price on weekends without BroBizz
@@ -93,7 +94,7 @@ namespace StoreBaeltTicketLibrary.Tests
         public void StoreBaeltCarDateIsinvalidTest()
         {
             //Arrange
-            DateTime date = new DateTime(0,0,0);
+            DateTime date = new DateTime(0, 0, 0);
             StoreBaeltCar car = new StoreBaeltCar("1234567", date, false);
             //Act
 
@@ -121,7 +122,7 @@ namespace StoreBaeltTicketLibrary.Tests
         public void StoreBaeltCarDateIsMinimunTest()
         {
             //Arrange
-            
+
             StoreBaeltCar car = new StoreBaeltCar("1234567", DateTime.MinValue, false);
             //Act
 
