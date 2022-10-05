@@ -19,8 +19,8 @@ namespace StoreBaeltBroen.Controllers
         /// </summary>
         /// <returns>List with all tickets</returns>
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]     //Tested works
-        [ProducesResponseType(StatusCodes.Status204NoContent)]    //Tested works
+        [ProducesResponseType(StatusCodes.Status200OK)]     //Tested works. Returns all Tickets
+        [ProducesResponseType(StatusCodes.Status204NoContent)]    //Tested works. Returns empty list
         public IActionResult GetAll()
         {
             List<Vehicle> list = mgr.GetAll();

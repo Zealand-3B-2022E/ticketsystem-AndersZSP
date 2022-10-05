@@ -18,26 +18,35 @@ namespace StoreBaeltTicketLib
         public class StoreBaeltCar : Car
         {
 
-            public override string LicensePlate { get; set; }
-
-            public override DateTime Date { get; set; }
-
-            public override bool BroBizz { get; set; }
-
-            public StoreBaeltCar()
+        /// <summary>
+        /// string LicensePlate refers to the StoreBaeltCar object's License plate, that can't be longer than 7 characters 
+        /// </summary>
+        public override string LicensePlate { get; set; }
+        /// <summary>
+        /// DateTime Date refers to the date that the tickets is to be used
+        /// </summary>
+        public override DateTime Date { get; set; }
+        /// <summary>
+        /// bool BroBizz refers to whether the StoreBaeltCar has a BroBizz or not, shaving 5% off the ticket price
+        /// </summary>
+        public override bool BroBizz { get; set; }
+        /// <summary>
+        /// Empty contructor
+        /// </summary>
+        public StoreBaeltCar()
             {
 
             }
 
-            /// <summary>
-            /// Creates an object of the StoreBaeltCarClass, that can use the methods Price() and VehicleType()
-            /// </summary>
-            /// <param name="licensePlate">string parameter that can't be above 7 characters</param>
-            /// <param name="date">DateTime parameter that can't be min, max or empty</param>
-            /// <param name="broBizz">Bool parameter</param>
-            /// <exception cref="ArgumentOutOfRangeException">Exception is thrown if the licenseplate is 8 characters or more. 
-            /// Or if the date is empty, min-value or max-value</exception>
-            public StoreBaeltCar(string licensePlate, DateTime date, bool broBizz)
+        /// <summary>
+        /// Creates an object of the StoreBaeltCarClass, that can use the methods Price() and VehicleType()
+        /// </summary>
+        /// <param name="licensePlate">string parameter that can't be above 7 characters</param>
+        /// <param name="date">DateTime parameter that can't be min, max or empty</param>
+        /// <param name="broBizz">Bool parameter whether the vehicle has a BroBizz or not</param>
+        /// <exception cref="ArgumentOutOfRangeException">Exception is thrown if the licenseplate is 8 characters or more. 
+        /// Or if the date is empty, min-value or max-value</exception>
+        public StoreBaeltCar(string licensePlate, DateTime date, bool broBizz)
             {
                 if (licensePlate.Length > 7)
                 {

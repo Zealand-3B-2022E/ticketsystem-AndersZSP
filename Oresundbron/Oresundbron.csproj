@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <Reference Include="TicketSystemClassLibrary">
-      <HintPath>..\..\..\..\Desktop\TicketSystemDLL\Newer version\TicketSystemClassLibrary.dll</HintPath>
+      <HintPath>extern dll\TicketSystemClassLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -15,10 +15,17 @@ namespace Oresundbron
     /// </summary>
     public class OresundCar : Car
     {
+        /// <summary>
+        /// string LicensePlate refers to the OresundCar object's License plate, that can't be longer than 7 characters 
+        /// </summary>
         public override string LicensePlate { get; }
-
+        /// <summary>
+        /// DateTime Date refers to the date that the tickets is to be used
+        /// </summary>
         public override DateTime Date { get; }
-
+        /// <summary>
+        /// bool BroBizz refers to whether the OresundCar has a BroBizz or not, shaving 249 off the ticket price
+        /// </summary>
         public override bool BroBizz { get; }
 
         public OresundCar()
@@ -31,7 +38,7 @@ namespace Oresundbron
         /// </summary>
         /// <param name="licensePlate">string parameter that can't be above 7 characters</param>
         /// <param name="date">DateTime parameter that can't be min, max or empty</param>
-        /// <param name="broBizz">Bool parameter</param>
+        /// <param name="broBizz">Bool parameter whether the vehicle has a BroBizz or not</param>
         /// <exception cref="ArgumentOutOfRangeException">Exception is thrown if the licenseplate is 8 characters or more. 
         /// Or if the date is empty, min-value or max-value</exception>
         public OresundCar(string licensePlate, DateTime date, bool broBizz)

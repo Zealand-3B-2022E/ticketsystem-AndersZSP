@@ -17,8 +17,17 @@
         /*I went with having the properties be abstract, so every vehicle that inherits from the vehicle class is forced to have these properties
         * As they are relevant for ticket sales
         */
+        /// <summary>
+        /// string LicensePlate refers to the Vehicle object's License plate, that can't be longer than 7 characters 
+        /// </summary>
         public abstract string LicensePlate { get; set; }
+        /// <summary>
+        /// DateTime Date refers to the date that the tickets is to be used
+        /// </summary>
         public abstract DateTime Date { get; set; }
+        /// <summary>
+        /// bool BroBizz refers to whether the vehicle has a BroBizz or not, shaving 5% off the ticket price
+        /// </summary>
         public abstract bool BroBizz { get; set; }
 
         /// <summary>
@@ -31,7 +40,6 @@
         /// The VehicleType method returns a string of the type of vehicle the ticket is for.
         /// The method is meant to be overwritten by its subclasses
         /// </summary>
-        /// <returns>string "Vehicle"</returns>
         public abstract string VehicleType();
     }
 }
