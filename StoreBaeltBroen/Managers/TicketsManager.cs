@@ -10,9 +10,9 @@ namespace StoreBaeltBroen.Managers
 
         //Week day
         static DateTime tuesday = new DateTime(2022, 10, 4);
-        private static List<Vehicle> StoreBaeltTicketList = new List<Vehicle>()
+        private static List<Vehicle> TicketList = new List<Vehicle>()
         {
-            
+
             new StoreBaeltCar("1234567",saturday,true),
             new StoreBaeltCar("1234567",tuesday,true),
             new StoreBaeltCar("abcdefg",saturday,false),
@@ -36,16 +36,16 @@ namespace StoreBaeltBroen.Managers
             {
                 throw new ArgumentNullException();
             }
-            if (!StoreBaeltTicketList.Exists(vehicle => vehicle.LicensePlate == LicensePlate))
+            if (!TicketList.Exists(vehicle => vehicle.LicensePlate == LicensePlate))
             {
                 throw new KeyNotFoundException();
             }
-            return StoreBaeltTicketList.FindAll(vehicle => vehicle.LicensePlate == LicensePlate);
+            return TicketList.FindAll(vehicle => vehicle.LicensePlate == LicensePlate);
         }
 
         public List<Vehicle> GetAll()
         {
-            return new List<Vehicle>(StoreBaeltTicketList);
+            return new List<Vehicle>(TicketList);
         }
 
         public StoreBaeltCar BuyTicketCar(StoreBaeltCar SBCar)
@@ -54,7 +54,15 @@ namespace StoreBaeltBroen.Managers
             {
                 throw new ArgumentNullException();
             }
-            StoreBaeltTicketList.Add(SBCar);
+            if (SBCar.LicensePlate.Length > 7)
+            {
+                throw new ArgumentOutOfRangeException("License plate must be 7 or fewer characters");
+            }
+            if (SBCar.Date == DateTime.MinValue || SBCar.Date == DateTime.MaxValue)
+            {
+                throw new ArgumentOutOfRangeException("Please fill in a date");
+            }
+            TicketList.Add(SBCar);
             return SBCar;
         }
 
@@ -64,7 +72,15 @@ namespace StoreBaeltBroen.Managers
             {
                 throw new ArgumentNullException();
             }
-            StoreBaeltTicketList.Add(mc);
+            if (mc.LicensePlate.Length > 7)
+            {
+                throw new ArgumentOutOfRangeException("License plate must be 7 or fewer characters");
+            }
+            if (mc.Date == DateTime.MinValue || mc.Date == DateTime.MaxValue)
+            {
+                throw new ArgumentOutOfRangeException("Please fill in a date");
+            }
+            TicketList.Add(mc);
             return mc;
         }
     }

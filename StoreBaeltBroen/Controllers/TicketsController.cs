@@ -11,15 +11,16 @@ namespace StoreBaeltBroen.Controllers
     [ApiController]
     public class TicketsController : ControllerBase
     {
-        //GetByLicensePlate
-        //GetAll
-        //BuyTicket
         private ITicketsManager mgr = new TicketsManager();
 
         // GET: api/<TicketsController>
+        /// <summary>
+        /// Returns a list of all the tickets in the system, if there are any (204 no content error code). Indifferent to what kind of ticket
+        /// </summary>
+        /// <returns>List with all tickets</returns>
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]     //Tested works
+        [ProducesResponseType(StatusCodes.Status204NoContent)]    //Tested works
         public IActionResult GetAll()
         {
             List<Vehicle> list = mgr.GetAll();
@@ -27,10 +28,15 @@ namespace StoreBaeltBroen.Controllers
         }
 
         // GET api/<TicketsController>/5
+        /// <summary>
+        /// Retrieves every ticket that has the same licenseplate as the one typed in. Sends back a 404 if there is no ticket connected
+        /// </summary>
+        /// <param name="licensePlate">the licenseplate of the vehicle that you wish to find all tickets for</param>
+        /// <returns>A list of all tickets connected to the licenseplate</returns>
         [HttpGet]
         [Route("search/{licensePlate}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]    //tested works
+        [ProducesResponseType(StatusCodes.Status404NotFound)]    //Tested works
         public IActionResult GetByLicensePlate(string licensePlate)
         {
             try
@@ -38,17 +44,23 @@ namespace StoreBaeltBroen.Controllers
                 List<Vehicle> TicketsForVehicle = mgr.GetByLicensePlate(licensePlate);
                 return Ok(TicketsForVehicle);
             }
-            catch (KeyNotFoundException knfe)
+            catch
             {
-                return NotFound(knfe.Message);
+                return NotFound("No tickets exists for this licenseplate");
             }
         }
 
         // POST api/<TicketsController>
+        /// <summary>
+        /// Function lets you buy a ticket for your car. It automatically makes it of the class "StoreBaeltCar" (SBCar) 
+        /// </summary>
+        /// <param name="SBCar">You fill out the licenseplate, Date and BroBizz properties of the SBCar object</param>
+        /// <returns>a single ticket is put into the system based on the information from SBCar</returns>
         [HttpPost]
         [Route("buyticketcar")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status201Created)]    //Tested works. Creates ticket
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]    //tested Works. Sends error if invalid data is entered
+        [ProducesResponseType(StatusCodes.Status409Conflict)]    //Tested works. Sends error if license plate or date invalid
         public IActionResult BuyTicketCar([FromBody] StoreBaeltCar SBCar)
         {
             try 
@@ -57,16 +69,23 @@ namespace StoreBaeltBroen.Controllers
                 string uri = "api/[controller]/" + SBCar.LicensePlate;
                 return Created(uri, newVehicle);
             }
-            catch(ArgumentException ae)
+            catch(ArgumentOutOfRangeException ae)
             {
                 return Conflict(ae.Message);
             }
 
         }
+
+        /// <summary>
+        /// Function lets you buy a ticket for a MC
+        /// </summary>
+        /// <param name="mc">You fill out the licenseplate, Date and BroBizz properties of the MC object</param>
+        /// <returns>a single ticket is put into the system based on the information from MC</returns>
         [HttpPost]
         [Route("buyticketmc")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status201Created)]    //Tested works. Creates ticket
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]    //tested Works. Sends error if invalid data is entered
+        [ProducesResponseType(StatusCodes.Status409Conflict)]    //Tested works. Sends error if license plate or date is invalid
         public IActionResult BuyTicketMC([FromBody] MC mc)
         {
             try
@@ -82,35 +101,5 @@ namespace StoreBaeltBroen.Controllers
 
         }
 
-        //[HttpPost]
-        //[Route("buyticketmc")]
-        //[ProducesResponseType(StatusCodes.Status201Created)]
-        //[ProducesResponseType(StatusCodes.Status409Conflict)]
-        //public IActionResult BuyTicketMC([FromBody] MC mc)
-        //{
-        //    try
-        //    {
-        //        MC newVehicle = mgr.BuyTicketMC(mc);
-        //        string uri = "api/mctickets/" + newVehicle.LicensePlate;
-        //        return Created(uri, newVehicle);
-        //    }
-        //    catch (ArgumentException ae)
-        //    {
-        //        return Conflict(ae);
-        //    }
-
-        //}
-
-        //// PUT api/<TicketsController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE api/<TicketsController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }
