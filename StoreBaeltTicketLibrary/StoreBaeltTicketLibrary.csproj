@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TicketSystemClassLibrary\TicketSystemClassLibrary.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="TicketSystemClassLibrary">
       <HintPath>extern dll\TicketSystemClassLibrary.dll</HintPath>
     </Reference>

@@ -14,14 +14,14 @@ namespace StoreBaeltTicketLibrary
     /// double Price() returns a double with the price of the ticket, depending on if it is weekend or not, and if the buyer has a BroBizz or not
     /// string Vehicletype() returns a string containing "Car". Same as the base class Car
     /// </summary>
-    public class StoreBaeltCar : Car
+    public class StoreBaeltCar : Vehicle
     {
 
-        public override string LicensePlate { get; }
+        public override string LicensePlate { get; set; }
 
-        public override DateTime Date { get;}
+        public override DateTime Date { get; set; }
 
-        public override bool BroBizz { get;}
+        public override bool BroBizz { get; set; }
 
         public StoreBaeltCar()
         {
