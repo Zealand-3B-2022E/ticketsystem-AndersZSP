@@ -229,6 +229,9 @@ namespace Oresundbron.Tests
             Assert.Fail();
         }
 
+        /// <summary>
+        /// Testing that OresundCar can be used as a Car object
+        /// </summary>
         [TestMethod]
         public void OresundCarPolymorphismWorksTest()
         {

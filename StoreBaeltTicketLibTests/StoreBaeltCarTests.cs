@@ -14,7 +14,11 @@ namespace StoreBaeltTicketLibrary.Tests
     public class StoreBaeltCarTests
     {
 
-        //Test SBCar price on weekedays with BroBizz
+
+        /// <summary>
+        /// Test SBCar price on weekedays with BroBizz
+        /// </summary>
+        /// <param name="DayOfWeek">Monday-friday</param>
         [TestMethod()]
         [DataRow(3)] //Monday-friday of october
         [DataRow(4)]

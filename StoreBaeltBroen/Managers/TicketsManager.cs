@@ -3,6 +3,7 @@ using TicketSystemClassLibrary;
 
 namespace StoreBaeltBroen.Managers
 {
+
     public class TicketsManager: ITicketsManager
     {
         //Weekend
@@ -10,7 +11,7 @@ namespace StoreBaeltBroen.Managers
 
         //Week day
         static DateTime tuesday = new DateTime(2022, 10, 4);
-        private static List<Vehicle> TicketList = new List<Vehicle>()
+        private static List<Vehicle> TicketList = new List<Vehicle>()   
         {
 
             new StoreBaeltCar("1234567",saturday,true),
@@ -30,6 +31,13 @@ namespace StoreBaeltBroen.Managers
 
         }
 
+        /// <summary>
+        /// Returns a list of all tickets that are connected to the licenseplate
+        /// </summary>
+        /// <param name="LicensePlate"></param>
+        /// <returns>List of all tickets connected to the licenseplate</returns>
+        /// <exception cref="ArgumentNullException">thrown if the licenseplate is null</exception>
+        /// <exception cref="KeyNotFoundException">thrown if the licenseplate doesn't exist in the system</exception>
         public List<Vehicle> GetByLicensePlate(string LicensePlate)
         {
             if (LicensePlate == null)
@@ -43,11 +51,22 @@ namespace StoreBaeltBroen.Managers
             return TicketList.FindAll(vehicle => vehicle.LicensePlate == LicensePlate);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>List of all Tickets</returns>
         public List<Vehicle> GetAll()
         {
             return new List<Vehicle>(TicketList);
         }
 
+        /// <summary>
+        /// Used to add a ticket to the static list "TicketList". The tickets are for Cars
+        /// </summary>
+        /// <param name="SBCar">The information needed to create a StoreBaeltCar object (string licenseplate, DateTime date, Bool BroBizz)</param>
+        /// <returns>The ticket</returns>
+        /// <exception cref="ArgumentNullException">thrown if the StoreBaeltCar is null</exception>
+        /// <exception cref="ArgumentOutOfRangeException">thrown if License plate is over 7 characters or if Date is min/max value</exception>
         public StoreBaeltCar BuyTicketCar(StoreBaeltCar SBCar)
         {
             if (SBCar == null)
@@ -66,6 +85,13 @@ namespace StoreBaeltBroen.Managers
             return SBCar;
         }
 
+        /// <summary>
+        /// Used to add a ticket to the static list "TicketList". The tickets are for MCs
+        /// </summary>
+        /// <param name="mc">The information needed to create a MC object (string licenseplate, DateTime date, Bool BroBizz)</param>
+        /// <returns>The ticket</returns>
+        /// <exception cref="ArgumentNullException">thrown if the MC is null</exception>
+        /// <exception cref="ArgumentOutOfRangeException">thrown if License plate is over 7 characters or if Date is min/max value</exception>
         public MC BuyTicketMC(MC mc)
         {
             if (mc == null)

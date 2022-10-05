@@ -231,6 +231,9 @@ namespace Oresundbron.Tests
             Assert.Fail();
         }
 
+        /// <summary>
+        /// Testing that an OresundMC can be used as a MC
+        /// </summary>
         [TestMethod]
         public void OresundMCPolymorphismWorksTest()
         {
