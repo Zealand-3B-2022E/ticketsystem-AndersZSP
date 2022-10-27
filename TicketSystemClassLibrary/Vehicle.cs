@@ -41,5 +41,7 @@
         /// The method is meant to be overwritten by its subclasses
         /// </summary>
         public abstract string VehicleType();
+
+        // TESTTESTTEST - INGEN ÆNDRINGER
     }
 }
